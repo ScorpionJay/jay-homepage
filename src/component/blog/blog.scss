@@ -1,0 +1,56 @@
+.blog{
+	background-color: #fff;
+	color:#666;
+	padding: 1rem 0rem;
+	margin:1rem 1rem;
+	border-radius: .4rem;
+
+	.item{
+		display: block;
+		padding: 1.5rem 0;
+		font-size: 1.2rem;
+		border-bottom: .2rem solid #eee;
+		color:#2ca6cb;
+			
+		>div{
+			padding: 0 1.5rem;
+			
+		}
+	}
+
+	.content{
+		padding: 1rem;
+
+		img{
+			max-width: 100%
+		}
+	}
+
+}
+
+@media screen and (min-width:1440px){
+ .blog{
+	margin: 2rem 30rem;
+ }
+}
+@media screen and (max-width:1024px){
+ .blog{
+	margin: 2rem 10rem;
+ }
+}
+@media screen and (max-width:800px){
+ .blog{
+	margin: 2rem 5rem;
+ }
+}
+@media screen and (max-width: 680px){
+ .blog{
+	margin: 2rem 1rem;
+ }
+}
+
+@media screen and (max-width: 375px){
+ .blog{
+	margin: 2rem .5rem;
+ }
+}

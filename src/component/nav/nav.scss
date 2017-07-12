@@ -1,0 +1,92 @@
+
+.nav{
+
+	// logo 动画
+	.navFade-appear {
+	    opacity: 0;
+	    transform:   translate(-2500px,0);
+	    transform: translate3d(-2500px,0,0);
+	}
+
+	.navFade-appear.navFade-appear-active {
+	    opacity: 1;
+		transition: opacity 1s ease;
+		transform:   translate(0,0);
+		transform: translate3d(0,0,0);
+		transition-property: transform, opacity;
+		transition-duration: 300ms;
+		animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+	}
+
+	display: flex;
+	width: 100%;
+	background-color: #333;
+	justify-content: space-between;
+
+	.logo{
+		color:#ddd;
+		padding: 2rem 3rem;
+	}
+
+	.icon{
+		display: none
+	}
+
+	.link{
+		padding: 2rem 1rem;
+	}
+
+	a{
+		padding: 2rem 2rem;
+		color:#eee;
+		text-decoration: none;
+	}
+	a:hover{
+		color:red;
+		background-color: #666
+	}
+
+	.active{
+		color:red
+	}
+
+} 
+
+@media screen and ( max-width:768px ) {
+    .nav {
+    	display: flex;
+    	flex-direction: column;
+        justify-content: flex-start;
+
+		.logo{
+            font-size: 1.5rem;
+    	}
+
+		.nav-menu{
+			display: flex;
+			justify-content: space-around;
+		}
+
+		.icon {
+	        display: block;
+	        align-self: center;
+	        font-size: 2rem;
+	        color:#fff
+	    }
+
+        .link{
+			display: flex;
+	    	flex-direction: column;
+	    	padding: 0rem 0rem;
+		}
+		.responsive{
+			display: none
+		}
+		a{
+			padding: 1rem 2rem;
+			font-size: 1.2rem
+		}
+    }
+
+    
+}
