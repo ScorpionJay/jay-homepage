@@ -22,6 +22,7 @@ const renderIndex = Component => {
 
 renderIndex(App);
 
+
 if (module.hot) {
   module.hot.accept(() => renderIndex(Root));
 }
