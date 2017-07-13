@@ -9,16 +9,15 @@ var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 const config = {
 	context: path.resolve(__dirname, 'src'),
-	devtool: "inline-source-map",
 	entry:{
 		app: './index.js',
 		vendor: ['react', 'react-dom','redux','react-redux','react-router-dom']
 	},
 	output: {
-		filename: 'app.js',
+		filename: 'js/app.[hash:5].js',
 		path: path.resolve(__dirname,'dist'),
 		publicPath: '/',
-		chunkFilename : '[name].js', // or whatever other format you want.
+		chunkFilename : 'js/[name].[hash:5].js', // or whatever other format you want.
 	},
 	module: {
 		rules: [
@@ -36,7 +35,15 @@ const config = {
 					//resolve-url-loader may be chained before sass-loader if necessary
 					use: ['css-loader', 'sass-loader']
 				})
-			}
+			},
+			{
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                use: [
+                    // 'file-loader?hash=sha512&digest=hex&name=image/[hash].[ext]',
+                    'url-loader?limit=3000&name=image/[hash:5].[ext]',// 小于3k的使用base64
+                    'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
+                ]
+            }
 		]
 	},
 	plugins: [
@@ -52,7 +59,7 @@ const config = {
 		// build optimization plugins
 		new webpack.optimize.CommonsChunkPlugin({
 		    name: 'vendor',
-		    filename: 'vendor.js',
+		    filename: 'js/vendor.[hash:5].js',
 		}),
 		new webpack.optimize.UglifyJsPlugin({
           output: {
@@ -62,7 +69,11 @@ const config = {
             warnings: false
           }
         }),
-		new ExtractTextPlugin('style.css'),
+		new ExtractTextPlugin({
+                filename: "css/style.[hash:5].css",
+                disable: false,
+                allChunks: true
+        }),
 		// 优化css插件
         new OptimizeCssAssetsPlugin({
           assetNameRegExp: /\.css$/g,

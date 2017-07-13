@@ -24,6 +24,15 @@ const store = function(initialState) {
 
 	let store = createStore(reducers,initialState,middlware)
 
+	// if (module.hot) {
+	// 	// Enable Webpack hot module replacement for reducers
+	// 	module.hot.accept('../reducer', () => {
+	// 	  const nextRootReducer = require('../reducer/index');
+	// 	  store.replaceReducer(nextRootReducer);
+	// 	});
+	// }
+
+
 	return store
 }
 

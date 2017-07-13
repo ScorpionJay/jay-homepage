@@ -41,7 +41,10 @@ export default class Nav extends Component {
 			      transitionAppearTimeout={500}
 			      transitionEnter={false}
 			      transitionLeave={false}>
-		          	<div className='logo'>Jay's Homepage</div>
+		          	<div className='logo'>Jay's Homepage
+		          		<img src={require('../../image/logo.svg')} style={{width:'1rem'}} />
+		          	</div>
+
 		        </ReactCSSTransitionGroup>
 				
 

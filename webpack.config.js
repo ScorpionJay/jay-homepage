@@ -17,10 +17,10 @@ const config = {
 		vendor: ['react', 'react-dom','redux','react-router-dom']
 	},
 	output: {
-		filename: 'app.js',
+		filename: 'js/app.[hash:5].js',
 		path: path.resolve(__dirname,'dist'),
 		publicPath: '/',
-		chunkFilename : '[name].js', // or whatever other format you want.
+		chunkFilename : 'js/[name].[hash:5].js', // or whatever other format you want.
 	},
 	module: {
 		rules: [
@@ -48,7 +48,11 @@ const config = {
 					//resolve-url-loader may be chained before sass-loader if necessary
 					use: ['css-loader', 'sass-loader']
 				})
-			}
+			},
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                use: ['file-loader?name=image/[hash].[ext]?']
+            }
 		]
 	},
 	plugins: [
@@ -56,7 +60,9 @@ const config = {
 			title: 'dev',
 			template: './src/index.html'
 		}),
-		new ExtractTextPlugin('style.css'),
+		new ExtractTextPlugin({
+			filename: "css/style.[hash:5].css",
+		}),
 		// build optimization plugins
 		// new webpack.optimize.CommonsChunkPlugin({
 		//     name: 'vendor',
@@ -64,7 +70,7 @@ const config = {
 		// }),
 		new webpack.optimize.CommonsChunkPlugin({
                         names: ['vendor','manifest'],
-                        filename: '[name].js'
+                        filename: 'js/[name].js'
                     }),
 		new webpack.HotModuleReplacementPlugin(), // Enable HMR
 		new webpack.NamedModulesPlugin()
