@@ -4,6 +4,8 @@ import { swiperAction } from '../../action/home'
 
 import Slider from '../../Component/slider/slider'
 
+import Fade from '../fade'
+
 class Home extends Component {
 
 	constructor(props) {
@@ -16,17 +18,19 @@ class Home extends Component {
 
 	componentDidMount(){
 		const { dispatch } = this.props
-    	dispatch(swiperAction([111111111]))
+    	dispatch(swiperAction())
 	}
 
 	render() {
 
 		return (
-			<div className='home'>
+			<Fade>
+				<div className='home'>
 
-				<Slider data={this.props.swiper} />
+					<Slider data={this.props.swiper} />
 
-			</div>
+				</div>
+			</Fade>
 		)
 	}
 

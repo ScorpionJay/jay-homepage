@@ -1,8 +1,11 @@
-
+/**
+* webpack develop config
+*/
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
+const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 
 const config = {
 	context: path.resolve(__dirname, '.'),
@@ -16,6 +19,13 @@ const config = {
             ],	
 		vendor: ['react', 'react-dom','redux','react-router-dom']
 	},
+	// externals: {
+ //            // require("jquery") is external and available
+ //            //  on the global var jQuery
+ //            'jquery': 'jQuery',
+ //            'react':'window.React',
+ //            'react-dom':'window.ReactDOM'
+ //    },
 	output: {
 		filename: 'js/app.[hash:5].js',
 		path: path.resolve(__dirname,'dist'),
@@ -73,7 +83,8 @@ const config = {
                         filename: 'js/[name].js'
                     }),
 		new webpack.HotModuleReplacementPlugin(), // Enable HMR
-		new webpack.NamedModulesPlugin()
+		new webpack.NamedModulesPlugin(),
+		new OpenBrowserPlugin({ url: 'http://localhost:1112' })
 	],
 	devServer: {
 		contentBase: path.join(__dirname, "src"),

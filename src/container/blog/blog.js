@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import BlogComponent from '../../component/blog/blog'
-
+import Fade from '../fade'
 import {blogListAction} from '../../action/blog'
 
  class Blog extends Component{
@@ -16,7 +16,9 @@ import {blogListAction} from '../../action/blog'
 
 	render() {
 		return (
-			<BlogComponent data={this.props.blogList} location={this.props.location} />
+			<Fade>
+				<BlogComponent data={this.props.blogList} location={this.props.location} />
+			</Fade>
 		)
 	}
 

@@ -3,8 +3,8 @@ import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import reducers from '../reducer'
 
-import DevTools from '../container/DevTools';
-import {persistState} from 'redux-devtools';
+// import DevTools from '../container/DevTools'
+// import {persistState} from 'redux-devtools'
 
 // const createStoreWithMiddleware = compose(
 //   DevTools.instrument(),

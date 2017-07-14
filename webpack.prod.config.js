@@ -1,11 +1,12 @@
-
+/**
+* webpack product config
+*/
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-// 优化css插件
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 const config = {
 	context: path.resolve(__dirname, 'src'),
@@ -17,7 +18,7 @@ const config = {
 		filename: 'js/app.[hash:5].js',
 		path: path.resolve(__dirname,'dist'),
 		publicPath: '/',
-		chunkFilename : 'js/[name].[hash:5].js', // or whatever other format you want.
+		chunkFilename : 'js/[name].[hash:5].js'
 	},
 	module: {
 		rules: [
@@ -56,14 +57,13 @@ const config = {
                 removeAttributeQuotes:true
             }
 		}),
-		// build optimization plugins
 		new webpack.optimize.CommonsChunkPlugin({
 		    name: 'vendor',
 		    filename: 'js/vendor.[hash:5].js',
 		}),
 		new webpack.optimize.UglifyJsPlugin({
           output: {
-            comments: false,  // 是否输出注释
+            comments: false,
           },
           compress: {
             warnings: false
@@ -74,7 +74,6 @@ const config = {
                 disable: false,
                 allChunks: true
         }),
-		// 优化css插件
         new OptimizeCssAssetsPlugin({
           assetNameRegExp: /\.css$/g,
           cssProcessor: require('cssnano'),
@@ -88,7 +87,8 @@ const config = {
         }),
         new webpack.BannerPlugin("Copyright by Jay"),
         new CopyWebpackPlugin([
-            { from: 'json', to: 'json' }
+            { from: 'json', to: 'json' },
+            { from: 'image/favicon.ico', to: 'image/favicon.ico' }
         ])
 	],
 	devServer: {

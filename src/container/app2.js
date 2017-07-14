@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
-// import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
-import {HashRouter as Router,Route,Switch} from 'react-router-dom'
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
+// import {HashRouter as Router,Route,Switch} from 'react-router-dom'
 
 import Nav from '../component/nav/nav'
 import Home from './home/home'
@@ -32,7 +32,7 @@ export default class App extends Component {
 				          transitionLeave={false}>
 				          <Nav/>
 				          <Switch key={location.key} location={location}>
-					           	<Route exact path='/' component={Home} key={'/'}/>
+					           	<Route exact path='/' component={Home} />
 								<Route path='/traning' component={Home} />
 								<Route path='/gallery' component={Home} />
 								<Route exact path='/blog' component={Blog}/>
