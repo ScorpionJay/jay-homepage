@@ -1,4 +1,4 @@
-﻿import React from 'react'
+﻿import React,{Component} from 'react'
 import {render} from 'react-dom'
 import App from './container/app'
 
@@ -11,17 +11,16 @@ import { AppContainer } from 'react-hot-loader'
 // 	document.getElementById('app')
 // )
 
-const renderIndex = Component => {
+const renderIndex = () => {
   render(
   	<AppContainer>
-		<App/>
+		  <App/>
     </AppContainer>,
     document.getElementById('app')
   );
-};
+}
 
-renderIndex(App);
-
+renderIndex(App)
 
 if (module.hot) {
   module.hot.accept(() => renderIndex(Root));

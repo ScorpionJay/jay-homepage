@@ -90,6 +90,7 @@ const config = {
 		contentBase: path.join(__dirname, "src"),
 		port:1112,
 		host: '0.0.0.0',
+		disableHostCheck: true,
 		hot:true,
 		historyApiFallback: true,
         proxy:{

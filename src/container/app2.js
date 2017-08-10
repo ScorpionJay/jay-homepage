@@ -1,3 +1,7 @@
+/**
+ * app.js的备份，没有使用代码分割
+ */
+
 import React,{Component} from 'react'
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 // import {HashRouter as Router,Route,Switch} from 'react-router-dom'

@@ -55,16 +55,16 @@ export default class App extends Component {
 		return (
  			<Provider store={store}>
 				   <Router>
-				      <div>
+				      	<div>
 				          <Nav/>
 				          <Switch>
 					           	<Route exact path='/' component={Home} />
-								<Route path='/traning' component={Home} />
-								<Route path='/gallery' component={Home} />
-								<Route exact path='/blog' component={Blog}/>
-								<Route exact path='/blog/:link' component={BlogDetail} />
-								<Route path='/about' component={About} />
-								<Route render={()=><p>404</p>} />
+											<Route path='/traning' component={Home} />
+											<Route path='/gallery' component={Home} />
+											<Route exact path='/blog' component={Blog}/>
+											<Route exact path='/blog/:link' component={BlogDetail} />
+											<Route path='/about' component={About} />
+											<Route render={()=><p>404</p>} />
 				          </Switch>
 				        </div>
 				    </Router>
