@@ -13,7 +13,7 @@ import { BLOGLIST,BLOGDETAIL } from '../action/blog'
 // }
 
 const blogListVo = [{
-	"title": "http://stackoverflow.com/",
+	"title": "",
 }]
 
 const blogList = ( state=blogListVo,action ) => {

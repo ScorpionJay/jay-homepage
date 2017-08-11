@@ -12,6 +12,7 @@ import './about.scss'
 const About = () => (
 	<div className='about'>
 		<div className='lable'>About</div>
+		<img src={require('../../image/header.png')} style={{ width:'16rem',borderRadius:'1rem' }}/>
 		<div>
 			<div className='row'>
 				<div>Name</div>

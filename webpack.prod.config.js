@@ -38,11 +38,28 @@ const config = {
 				})
 			},
 			{
-                test: /\.(jpe?g|png|gif|svg)$/i,
+                test: /\.(jpe?g|png|svg)$/i,
                 use: [
-                    // 'file-loader?hash=sha512&digest=hex&name=image/[hash].[ext]',
-                    'url-loader?limit=3000&name=image/[hash:5].[ext]',// 小于3k的使用base64
-                    'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
+						// url-loader 是对file-loader的封装 
+						// {
+						// 	loader: 'file-loader',
+						// 	options: {
+						// 		name: '[path][name].[hash:5].[ext]',
+						// 		publicPath: 'image'
+						// 	}  
+						// },
+						{
+							loader: 'url-loader',
+							options: {
+								limit: 8192,
+								name: 'image/[name].[hash:5].[ext]'
+							}
+						}
+                    //'file-loader?hash=sha512&digest=hex&name=image/[hash].[ext]',
+                    //'url-loader?limit=3000&name=image/[hash:5].[ext]',// 小于3k的使用base64
+					//'image-webpack-loader'
+					// 图片压缩有问题 难道是node版本问题？？？
+					// https://github.com/tcoopman/image-webpack-loader
                 ]
             }
 		]
