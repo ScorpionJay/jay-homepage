@@ -35,7 +35,7 @@ export default class Nav extends Component {
 
 			<div className='nav-menu'>
 
-				<Transition timeout={500} in={true} appear={true}>
+				<Transition timeout={200} in={true} appear={true}>
 					{(status) => (
 						<div  className={`logo  navFade navFade-${status}`}>Jay's Homepage </div>
 					)}

@@ -9,7 +9,7 @@ import React from 'react'
 import './about.scss'
 
 // 函数
-const About = () => (
+const AboutComtonent = () => (
 	<div className='about'>
 		<div className='lable'>About</div>
 		<img src={require('../../image/header.png')} style={{ width:'16rem',borderRadius:'1rem' }}/>
@@ -46,7 +46,7 @@ const About = () => (
 	</div>
 )
 
-export default About
+export default AboutComtonent
 
 // 继承Component
 // export default class About extends Component {
