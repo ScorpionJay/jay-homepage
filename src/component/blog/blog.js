@@ -20,9 +20,12 @@ export default class Blog extends Component{
 
 class Item extends Component{
 	render() {
+		const {title,date} = this.props.data
+
 		return (
 				<Link className='item' to={this.props.location.pathname +'/'+ this.props.data.url} >
-					<div>{this.props.data.title}</div>
+					<div>{title}</div>
+					<div>{date}</div>
 				</Link>
 		);
 	}

@@ -7,14 +7,15 @@
 
 	.item{
 		display: block;
-		padding: 1.5rem 0;
+		padding: 1.1rem 1.5rem;
 		font-size: 1.2rem;
 		border-bottom: .2rem solid #eee;
 		color:#2ca6cb;
 			
-		>div{
-			padding: 0 1.5rem;
-			
+		>div:nth-child(2){
+			font-size: 1rem;
+			margin-top: .5rem;
+			color:#666;
 		}
 	}
 

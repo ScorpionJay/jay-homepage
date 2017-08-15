@@ -1,25 +1,32 @@
 import React,{Component} from 'react'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import { CSSTransition,TransitionGroup } from 'react-transition-group'
 
-export default class Fade extends Component {
-
-	render() {
-
-		return (
-			<ReactCSSTransitionGroup
-				          transitionName="fade"
-				          transitionAppear={true}
-				          transitionAppearTimeout={300}
-				          transitionEnterTimeout={300}
-				          transitionLeaveTimeout={300}
-				          transitionEnter={true}
-				          transitionLeave={false}>
+// export default class Fade extends Component {
+// 	render() {
+// 		return (
+// 			<TransitionGroup  >
+// 				<CSSTransition
+// 						  appear={true}
+// 				          classNames="fade"
+// 				          timeout={500}>
 			
-				         { this.props.children }
+// 				         { this.props.children }
+// 				</CSSTransition>
 
-			</ReactCSSTransitionGroup>
-		)
-	}
+// 			</TransitionGroup>
+// 		)
+// 	}
+// }
 
-}
+const  Fade = ({children}) => (
+			<TransitionGroup  >
+				<CSSTransition
+					appear={true}
+					classNames="fade"
+					timeout={500}>
+						 { children }
+				</CSSTransition>
+			</TransitionGroup>
+)
 
+export default Fade

@@ -2,13 +2,13 @@
 .nav{
 
 	// logo 动画
-	.navFade-appear {
+	.navFade-entering {
 	    opacity: 0;
 	    transform:   translate(-2500px,0);
 	    transform: translate3d(-2500px,0,0);
 	}
 
-	.navFade-appear.navFade-appear-active {
+	.navFade-entered {
 	    opacity: 1;
 		transition: opacity 1s ease;
 		transform:   translate(0,0);

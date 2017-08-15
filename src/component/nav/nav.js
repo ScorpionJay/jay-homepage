@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {NavLink} from 'react-router-dom'
 
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
+import {Transition } from 'react-transition-group'
 
 import './nav.scss'
 
@@ -35,15 +35,11 @@ export default class Nav extends Component {
 
 			<div className='nav-menu'>
 
-				<ReactCSSTransitionGroup
-		          transitionName="navFade"
-		          transitionAppear={true}
-			      transitionAppearTimeout={500}
-			      transitionEnter={false}
-			      transitionLeave={false}>
-		          	<div className='logo'>Jay's Homepage </div>
-		        </ReactCSSTransitionGroup>
-				
+				<Transition timeout={500} in={true} appear={true}>
+					{(status) => (
+						<div  className={`logo  navFade navFade-${status}`}>Jay's Homepage </div>
+					)}
+				</Transition  >
 
 				<div className='icon' onClick={ this.showMenu.bind(this) }>&#9776;</div>
 			</div>
